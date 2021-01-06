@@ -56,6 +56,7 @@ function evaluate(board) {
             return -10;
     }
 
+    // Check if 2x2 win
     for (let row = 0; row < 3; row++) {
         for (let col = 0; col < 3; col++) {
             if (gameBoard[row][col] === gameBoard[row][col + 1] &&

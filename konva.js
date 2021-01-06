@@ -102,11 +102,16 @@ let drawingModule = (function () {
                 });
                 rect.row = row;
                 rect.col = col;
-                rect.on('click', function () {
+                rect.on('click tap', function () {
                     // console.log('row: ', this.row);
                     // console.log('col: ', this.col);
                     tileClickCallback(this.row, this.col);
                 });
+                // rect.on('tap', function () {
+                //     // console.log('row: ', this.row);
+                //     // console.log('col: ', this.col);
+                //     tileClickCallback(this.row, this.col);
+                // });
 
                 // console.log('row: ', row);
                 // console.log('col: ', col);
@@ -123,9 +128,19 @@ let drawingModule = (function () {
             y: row * 250 + 15,
             image: symbol === 'x' ? xSymbolImage : oSymbolImage,
             width: 220,
-            height: 220
+            height: 220,
+            opacity: 0
         });
         playersLayer.add(symbolImage);
+        let symbolTween = new Konva.Tween({
+            node: symbolImage,
+            x: col * 250 + 15,
+            y: row * 250 + 15,
+            opacity: 1,
+            easing: Konva.Easings.EaseInOut,
+            duration: 0.3
+        });
+        symbolTween.play();
         playersLayer.draw();
     }
 

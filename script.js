@@ -55,7 +55,9 @@ function tileClickCallback(row, col) {
 
         enablePlayerMoves = false;
 
-        botMove();
+        setTimeout(() => {
+            botMove();
+        }, 300);
     }
 
 }
@@ -70,8 +72,8 @@ function botMove() {
     setTimeout(() => {
         checkWinner();
         enablePlayerMoves = true;
+    }, 300);
 
-    }, 100);
 }
 
 function randomBotMove() {
