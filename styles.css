@@ -1,0 +1,44 @@
+body {
+  background-color: black;
+  background-image: url('/images/background.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: auto;
+  filter: brightness(1);
+  background-size: cover;
+  height: 99vh;
+  color: white;
+  font-family: 'Exo 2', sans-serif;
+}
+
+p {
+    margin-bottom: 0.5vh;
+}
+
+.organizer {
+    line-height: 2.1vh;
+    font-size: 2.1vh;
+    font-weight: 900;
+    font-style: italic;
+    color: #E93D3F; 
+}
+
+.title {
+    text-align: center;
+    font-size: 7vh;
+    line-height: 0.9em;
+    font-weight: 900;
+}
+
+.author {
+    line-height: 2.5vh;
+    font-size: 2.1vh;
+    font-weight: 500;
+    font-style: italic;
+    text-align: right;
+}
+
+.gameMessage {
+    font-weight: 400;
+    text-align: center;
+}
