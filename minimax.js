@@ -56,6 +56,19 @@ function evaluate(board) {
             return -10;
     }
 
+    for (let row = 0; row < 3; row++) {
+        for (let col = 0; col < 3; col++) {
+            if (gameBoard[row][col] === gameBoard[row][col + 1] &&
+                gameBoard[row][col] === gameBoard[row + 1][col] &&
+                gameBoard[row][col] === gameBoard[row + 1][col + 1]) {
+                if (board[row][col] === realPlayer)
+                    return 10;
+                else if (board[row][col] === bot)
+                    return -10;
+            }
+        }
+    }
+
     // Else if none of them have won then return 0
     return 0;
 }

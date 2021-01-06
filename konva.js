@@ -47,17 +47,20 @@ let drawingModule = (function () {
 
 
     function initialize(tileClickCallback) {
-        xSymbolImage.onload = onImageLoadCallback();
-        oSymbolImage.onload = onImageLoadCallback();
-        xSymbolImage.src = '/images/x-symbol.png';
-        oSymbolImage.src = '/images/o-symbol.png';
-
-        function onImageLoadCallback() {
-            if (--numberOfRemainingImagesToLoad == 0) {
-                drawBoard();
-                addFieldClickEvents(tileClickCallback);
+        return new Promise((resolve, reject) => {
+            xSymbolImage.onload = onImageLoadCallback();
+            oSymbolImage.onload = onImageLoadCallback();
+            xSymbolImage.src = 'images/x-symbol.png';
+            oSymbolImage.src = 'images/o-symbol.png';
+    
+            function onImageLoadCallback() {
+                if (--numberOfRemainingImagesToLoad == 0) {
+                    drawBoard();
+                    addFieldClickEvents(tileClickCallback);
+                    resolve();
+                }
             }
-        }
+        });
 
     }
 
@@ -128,7 +131,7 @@ let drawingModule = (function () {
 
     return {
         initialize: function(tileClickCallback) {
-            initialize(tileClickCallback);
+            return initialize(tileClickCallback);
         },
 
         drawSymbol: function(row, col, symbol) {
